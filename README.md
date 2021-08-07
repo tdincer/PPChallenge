@@ -9,7 +9,7 @@ The challenge consists of two parts:
 
 ## 1. Forecasting Problem
 
-**Data:** The dataset is very small, containing only 96 samples to train machine learning models, and 24 samples to predict the hourly wholesale price of electricity. The dataset contains $Date$​, $Hour$​, and $Regional Power Demand$​ information to predict the wholesale price of electricity. In all my data pipelines, I used only the $Hour$​ and $Power Demand$​​ columns to train models and discarded the $Date$​​​ column as the dataset does not reveal any seasonal (weekly, monthly, yearly) patterns.
+**Data:** The dataset is very small, containing only 96 samples to train machine learning models, and 24 samples to predict the hourly wholesale price of electricity. The dataset contains $Date$​, $Hour$​, and $Regional Power Demand$​ information. In all my data pipelines, I used only the $Hour$​ and $Power Demand$​​ columns to train models and discarded the $Date$​​​​ column as the it does not reveal any seasonal (weekly, monthly, yearly) patterns.
 
 **Models:** I trained Xgboost and Lightgbm models. The Xgboost data pipeline transformed the $Hour$ column with the OneHotEncoder and standard-scaled the power demand whereas the lightgbm data pipeline transformed the $Hour$ column with the OrdinalEncoder.
 
@@ -17,7 +17,7 @@ To tune the models, I used the $Optuna$ hyper-parameter optimization framework. 
 
 In hyper-parameter tuning, I trained the models over randomly split 3 deterministic Folds. The objective function was the average of the root mean squared errors.
 
-**Results:** The results of the parameter tuning are stored in xxx. The best Xgboost and Lightgbm models yielded the following rms errors:
+**Results:** The results of the parameter tuning are stored in the $study$ folder. The best Xgboost and Lightgbm models yielded the following rms errors:
 
 Xgboost rmse: \$3.56
 
@@ -29,7 +29,7 @@ Lightgbm rmse: \$3.45
 
 I predicted the wholesale hourly price of electricity with the best lightgbm model trained on the first part. To solve the optimization problem, I used GEKKO python package. The expected revenue from this exercise is found to be \$3109.
 
- 
+
 
 ### Sets
 
@@ -68,7 +68,7 @@ $$
 
 ### Constraints
 
-The first two constaints ensure that the system will use only 1 charge/discharge cycle. The thrid constraint ensures that the battery system has enought enery to sell. 
+The first two constaints ensure that the system will use only 1 charge/discharge cycle. The third constraint ensures that the battery system has enough energy to sell. 
 $$
 \sum R_i = 0
 $$
@@ -83,7 +83,7 @@ $$
 
 ### Boundaries
 
-The power input/output is constrained to be between -100 MW and +100 MW. However, in practice this parameter pegs can take only -100, 0, 100 to maximize the revenue.
+The power input/output is constrained to be between -100 MW and +100 MW. However, in practice this parameter takes only -100, 0, 100 to maximize the revenue.
 $$
 -100 ~MW < R_i < +100 ~MW
 $$
