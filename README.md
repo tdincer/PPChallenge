@@ -29,6 +29,8 @@ Lightgbm rmse: \$3.45
 
 I predicted the wholesale hourly price of electricity with the best lightgbm model trained on the first part. To solve the optimization problem, I used GEKKO python package. The expected revenue from this exercise is found to be \$3109.
 
+A detailed explanation is available in Report.pdf.
+
 
 
 
