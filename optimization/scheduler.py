@@ -48,6 +48,7 @@ def main():
 
     result = [i.value[0] for i in bp]
     result2 = submit(result)
+    result2.to_csv('schedule.csv', index=False)
 
     print('Expected Revenue: $%i' % sum(result * price))
 
