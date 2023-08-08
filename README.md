@@ -1,10 +1,9 @@
-# PP Challenge
+# Optimizing Grid-scale Battery Trading Strategy
 
-The challenge consists of two parts:
+The problem consists of two parts:
 
 1) Prediction of the hourly electricity price for the last day of the data,
 2) Finding the optimal charge/discharge setting to maximize the trading revenue.
-
 
 
 ## 1. Forecasting Problem
